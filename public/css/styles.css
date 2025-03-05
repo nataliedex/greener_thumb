@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between them */
+  }
+
+  select {
+    display: block;
+    width: 50%; /* Optional: Makes them stretch full width */
+    margin-bottom: 10px; /* Adds spacing between them */
+  }
+
+  #submit-button {
+    display: block;
+    width: 50%; /* Optional: Makes them stretch full width */
+    margin-bottom: 10px; /* Adds spacing between them */
+  }
+
+  img {
+    width: 200px;
+  }
+
+  .plant {
+    border: 2px solid black;
+    width: 250px;
+    align-items: center;
+  }

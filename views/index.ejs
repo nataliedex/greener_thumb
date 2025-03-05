@@ -1,5 +1,101 @@
 <%- include('partials/header') %>
     <main>
-        This is the body
+
+        <h1>Plant API</h1>
+
+        <div class="container">
+            <form action="/data" method="GET">
+                <label for="edible">Edible:</label>
+                <select name="edible" id="edible">
+                    <option></option>
+                    <option value="1">Edible</option>
+                    <option value="">Not for consumption</option>
+                </select>
+        
+                <label for="poisonous">Poisonous:</label>
+                <select name="poisonous" id="poisonous">
+                    <option></option>
+                    <option value="1">Poisonous</option>
+                    <option value="">Not poisonous</option>
+                </select>
+        
+                <label for="cycle">Cycle:</label>
+                <select name="cycle" id="cycle">
+                    <option></option>
+                    <option value="perennial">Perennial</option>
+                    <option value="annual">Annual</option>
+                    <option value="biennial">Biennial</option>
+                    <option value="biannual">Biannual</option>
+                </select>
+        
+                <label for="watering">Watering:</label>
+                <select name="watering" id="watering">
+                    <option></option>
+                    <option value="frequent">Frequent</option>
+                    <option value="average">Average</option>
+                    <option value="minimum">Minimum</option>
+                    <option value="none">None</option>
+                </select>
+        
+                <label for="sunlight">Sunlight:</label>
+                <select name="sunlight" id="sunlight">
+                    <option></option>
+                    <option value="full_shade">Full Shade</option>
+                    <option value="part_shade">Part Shade</option>
+                    <option value="sun-part">Sun Part</option>
+                    <option value="shade">Shade</option>
+                    <option value="full_sun">Full Sun</option>
+                </select>
+        
+                <label for="indoor">Indoor:</label>
+                <select name="indoor" id="indoor">
+                    <option></option>
+                    <option value="1">Indoors</option>
+                    <option value="">Not Indoors</option>
+                </select>
+        
+                <label for="hardiness">Hardiness:</label>
+                <select name="hardiness" id="hardiness">
+                    <option></option>
+                    <option value="1">Zone 1</option>
+                    <option value="2">Zone 2</option>
+                    <option value="3">Zone 3</option>
+                    <option value="4">Zone 4</option>
+                    <option value="5">Zone 5</option>
+                    <option value="6">Zone 6</option>
+                    <option value="7">Zone 7</option>
+                    <option value="8">Zone 8</option>
+                    <option value="9">Zone 9</option>
+                    <option value="10">Zone 10</option>
+                    <option value="11">Zone 11</option>
+                    <option value="12">Zone 12</option>
+                    <option value="13">Zone 13</option>
+                </select>
+    
+                <button id="submit-button" type="submit">Submit</button>
+
+            </form>
+             
+        </div>
+        <h2>List of Plants: <%= data ? data.length : "" %></h2>
+        
+        <% if(data && data.length > 0){ %>
+            <% for(let i = 0; i < data.length; i++){ %>
+                <div class="plant">
+                    <h3>Common Name:</h3>
+                    <p><%= data[i].common_name %></p>
+                    <h3>Family:</h3>
+                    <p><%= data[i].family %></p>
+                    <% if (data[i].default_image && data[i].default_image.regular_url) { %>
+                        <img src="<%= data[i].default_image.regular_url %>" alt="<%= data[i].common_name %>">
+                    <% } else { %>
+                        <p>No image available</p>
+                    <% } %>
+                </div>
+            <% } %>
+        <% } else { %>
+            <p>No plants found with the selected filters</p>
+        <% } %>
+        
     </main>
 <%- include('partials/footer') %>
