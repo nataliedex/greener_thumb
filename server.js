@@ -24,24 +24,16 @@ app.get("/data", async (req, res) => {
     try{
         const edible = req.query.edible;
         const poisonous = req.query.poisonous;
-        const cycle = req.query.cycle;
         const watering = req.query.watering;
         const sunlight = req.query.sunlight;
-        const indoor = req.query.indoor;
-        const hardiness = req.query.hardiness;
 
-        let url = `https://perenual.com/api/v2/species-list?key=${process.env.PERENUAL_API_KEY}`;
+        let url = `https://perenual.com/api/v2/species-list?key=${process.env.PERENUAL_API_KEY}&indoor=1`;
 
-        if (edible !== "") url += `&edible=${edible}`;
-        if (poisonous !== "") url += `&poisonous=${poisonous}`;
-        if (cycle !== "") url += `&cycle=${cycle}`;
-        if (watering !== "") url += `&watering=${watering}`;
-        if (sunlight !== "") url += `&sunlight=${sunlight}`;
-        if (indoor !== "") url += `&indoor=${indoor}`;
-        if (hardiness !== "") url += `&hardiness=${hardiness}`;
+        if (edible !== "none") url += `&edible=${edible}`;
+        if (poisonous !== "none") url += `&poisonous=${poisonous}`;
+        if (watering !== "none") url += `&watering=${watering}`;
+        if (sunlight !== "none") url += `&sunlight=${sunlight}`;
 
-        console.log(url);
-        
         const response = await axios.get(url);
         const data = response.data.data;
 

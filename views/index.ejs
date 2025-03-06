@@ -10,30 +10,21 @@
                     <form action="/data" method="GET">
                         <label for="edible">Edible:</label>
                         <select class="form-select" name="edible" id="edible">
-                            <option></option>
+                            <option value="none">No Preference</option>
                             <option value="1">Edible</option>
                             <option value="">Not for consumption</option>
                         </select>
                 
-                        <label for="poisonous">Poisonous:</label>
+                        <label for="poisonous">Good for Pets and Kids:</label>
                         <select class="form-select" name="poisonous" id="poisonous">
-                            <option></option>
-                            <option value="1">Poisonous</option>
-                            <option value="">Not poisonous</option>
-                        </select>
-                
-                        <label for="cycle">Cycle:</label>
-                        <select class="form-select" name="cycle" id="cycle">
-                            <option></option>
-                            <option value="perennial">Perennial</option>
-                            <option value="annual">Annual</option>
-                            <option value="biennial">Biennial</option>
-                            <option value="biannual">Biannual</option>
+                            <option value="none">No Preference</option>
+                            <option value="1">Not Appropriate</option>
+                            <option value="">Good for Pets and Kids</option>
                         </select>
                 
                         <label for="watering">Watering:</label>
                         <select class="form-select" name="watering" id="watering">
-                            <option></option>
+                            <option value="none">No Preference</option>
                             <option value="frequent">Frequent</option>
                             <option value="average">Average</option>
                             <option value="minimum">Minimum</option>
@@ -42,7 +33,7 @@
                 
                         <label for="sunlight">Sunlight:</label>
                         <select class="form-select" name="sunlight" id="sunlight">
-                            <option></option>
+                            <option value="none">No Preference</option>
                             <option value="full_shade">Full Shade</option>
                             <option value="part_shade">Part Shade</option>
                             <option value="sun-part">Sun Part</option>
@@ -50,31 +41,6 @@
                             <option value="full_sun">Full Sun</option>
                         </select>
                 
-                        <label for="indoor">Indoor:</label>
-                        <select class="form-select" name="indoor" id="indoor">
-                            <option></option>
-                            <option value="1">Indoors</option>
-                            <option value="">Not Indoors</option>
-                        </select>
-                
-                        <label for="hardiness">Hardiness:</label>
-                        <select class="form-select" name="hardiness" id="hardiness">
-                            <option></option>
-                            <option value="1">Zone 1</option>
-                            <option value="2">Zone 2</option>
-                            <option value="3">Zone 3</option>
-                            <option value="4">Zone 4</option>
-                            <option value="5">Zone 5</option>
-                            <option value="6">Zone 6</option>
-                            <option value="7">Zone 7</option>
-                            <option value="8">Zone 8</option>
-                            <option value="9">Zone 9</option>
-                            <option value="10">Zone 10</option>
-                            <option value="11">Zone 11</option>
-                            <option value="12">Zone 12</option>
-                            <option value="13">Zone 13</option>
-                        </select>
-            
                         <button class="btn btn-primary" id="submit-button" type="submit">Submit</button>
         
                     </form>
@@ -93,8 +59,8 @@
                                       <p class="bd-placeholder-img card-img-top" width="100%" height="225">No image available</p>
                                   <% } %>
                                   <div class="card-body">
-                                    <p class="card-text">Common Name: <%= data[i].common_name %></p>
-                                    <p class="card-text">Family Name: <%= data[i].family %></p>
+                                    <p class="card-text"><strong>Common Name:</strong> <%= data[i].common_name %></p>
+                                    <p class="card-text"><strong>Family:</strong> <%= data[i].family %></p>
                                   </div>
                                 </div>
                               </div>
